@@ -10,19 +10,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.advancelibrary.R
-import com.advancelibrary.ui.theme.Kuning
-import com.advancelibrary.ui.theme.putih
-
+import com.advancelibrary.ui.theme.Abuabu
+import com.advancelibrary.ui.theme.KuningMuda
 
 @Composable
-fun ButtonMasuk(
+fun ButtonKirim(
     text: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
@@ -32,30 +28,31 @@ fun ButtonMasuk(
         onClick = onClick,
         enabled = enabled,
         modifier = modifier
-            .width(415.dp)
-            .height(50.dp),
+            .width(270.dp)
+            .height(36.dp),
         shape = RoundedCornerShape(size = 5.dp),
-        colors = ButtonDefaults.buttonColors(Kuning),
+        colors = ButtonDefaults.buttonColors(KuningMuda),
 
         ) {
         Text(
             text = text,
             style = TextStyle(
-                fontSize = 14.sp,
+                fontSize = 12.sp,
                 lineHeight = 28.sp,
-                fontFamily = FontFamily(Font(R.font.poppins_semibold)),
-                color = putih,
+                color = Abuabu,
                 textAlign = TextAlign.Right,),
             modifier = Modifier.align(Alignment.CenterVertically)
         )
+
+
     }
 }
 
 @Composable
 @Preview(showBackground = false)
-fun PreviewButtonMasuk() {
-    ButtonMasuk(
-        text = "Masuk",
+fun PreviewButtonKirim() {
+    ButtonKirim(
+        text = "Kirim",
         onClick = {}
     )
 }
