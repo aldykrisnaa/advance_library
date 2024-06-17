@@ -3,7 +3,6 @@ package com.advancelibrary.alarm
 import android.app.NotificationManager
 import android.content.Context
 import android.graphics.BitmapFactory
-import androidx.annotation.DrawableRes
 import androidx.core.app.NotificationCompat
 import com.advancelibrary.R
 import com.advancelibrary.alarm.KeyNotif.RMNDR_NOTI_CHNNL_ID
@@ -30,10 +29,4 @@ class RemaindNotif (private val context: Context) {
         notificationManager.notify(RMNDR_NOTI_ID, notification)
     }
 
-    private fun Context.bitmapFromResource(
-        @DrawableRes resId: Int
-    ) = BitmapFactory.decodeResource(
-        resources,
-        resId
-    )
 }
