@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -18,13 +19,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.advancelibrary.R
-import com.advancelibrary.ui.theme.biru
+import com.advancelibrary.navigation.Screen
 import com.advancelibrary.ui.theme.component.ButtonMasuk
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    navController: NavController
+) {
     val context = LocalContext.current
     val sharedPreferences = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
     var email by remember { mutableStateOf(TextFieldValue("")) }
@@ -86,7 +89,7 @@ fun LoginScreen() {
 
         Text(
             text = "Lupa kata sandi?",
-            color = biru,
+            color = Color.Blue,
             fontFamily = FontFamily(Font(R.font.poppins_medium)),
             modifier = Modifier
                 .align(Alignment.End)
@@ -99,6 +102,11 @@ fun LoginScreen() {
         ) {
             ButtonMasuk(text = "Masuk", onClick = {
                 saveLoginDetails(sharedPreferences, email.text, password.text)
+                navController.navigate(Screen.Beranda.route) {
+                    popUpTo(Screen.Login.route) {
+                        inclusive = true
+                    }
+                }
             })
         }
     }
@@ -113,8 +121,4 @@ private fun saveLoginDetails(sharedPreferences: SharedPreferences, email: String
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun LoginScreentPreview() {
-    LoginScreen()
-}
+

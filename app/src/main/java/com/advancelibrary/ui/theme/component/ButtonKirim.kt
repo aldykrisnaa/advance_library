@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.advancelibrary.ui.theme.Abuabu
-import com.advancelibrary.ui.theme.KuningMuda
+import com.advancelibrary.ui.theme.Kuning
 
 @Composable
 fun ButtonKirim(
@@ -31,7 +31,7 @@ fun ButtonKirim(
             .width(270.dp)
             .height(36.dp),
         shape = RoundedCornerShape(size = 5.dp),
-        colors = ButtonDefaults.buttonColors(KuningMuda),
+        colors = ButtonDefaults.buttonColors(Kuning),
 
         ) {
         Text(
